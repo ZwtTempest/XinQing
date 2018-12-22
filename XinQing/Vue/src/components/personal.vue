@@ -272,12 +272,14 @@
 </style>
 <script>
     import footers from './footers.vue'
-	export default{
+	export default {
 		data(){
-			return{}
+			return {}
 		},
         components:{
             "footers":footers
+        },
+        methods:{
         }
 	}
 </script>

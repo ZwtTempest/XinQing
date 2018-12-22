@@ -54,9 +54,7 @@
                     <li v-for="item in proList" :key="item.id">
                         <a>
                             <div>
-                                <router-link to="/pro_detail">
-                                    <img :src="item.img">
-                                </router-link>
+                                <img :src="item.img" @click="goDetail(item.id)">
                             </div>
                         </a>
                         <div class="home-product-info">
@@ -537,12 +535,7 @@
 	export default {
 		data(){
 			return{
-                proList:[
-                    {id:1,img:require('../img/pic1.png'),proTitle:'小米笔记本MIX8核i72G独显',proPrice:18.00,newPrice:15.00},
-                    {id:2,img:require('../img/pic2.png'),proTitle:'小米笔记本MIX8核i72G独显',proPrice:18.00,newPrice:15.00},
-                    {id:3,img:require('../img/pic3.png'),proTitle:'小米笔记本MIX8核i72G独显',proPrice:18.00,newPrice:15.00},
-                    {id:4,img:require('../img/pic4.png'),proTitle:'小米笔记本MIX8核i72G独显',proPrice:18.00,newPrice:15.00}
-                ],
+                proList:[],
                 showZzc: false,
                 spanStyle:{}
             }
@@ -563,10 +556,19 @@
                 this.spanStyle = {
                     "bottom":"-380px"
                 };
+            },
+            getList(){
+                var url = "http://127.0.0.1:3002/home/prolist";
+                this.$http.get(url).then(result=>{
+                    this.proList = result.body
+                })
+            },
+            goDetail(id){
+                this.$router.push("/pro_detail/"+id)
             }
         },
         created(){
-
+            this.getList()
         }
 	}
 </script>

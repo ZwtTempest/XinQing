@@ -425,7 +425,14 @@
                 this.spanStyle = {
                     "bottom":"-380px"
                 };
+            },
+            getId(){
+                var id = this.$route.params.id;
+                console.log(id)
             }
+        },
+        created(){
+            this.getId()
         }
 	}
 </script>

@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import resource from 'vue-resource'
 import App from './App.vue'
 import router from './router'
 
@@ -13,7 +14,7 @@ import {Header,Swipe,SwipeItem} from "mint-ui"
 Vue.component(Header.name,Header)
 Vue.component(Swipe.name,Swipe)
 Vue.component(SwipeItem.name,SwipeItem)
-
+Vue.use(resource);
 new Vue({
   router,
   render: h => h(App)

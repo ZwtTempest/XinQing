@@ -31,7 +31,7 @@ export default new Router({
     {path:'/cash/cash_record',component:cash_record},
     {path:'/recharge',component:recharge},
     {path:'/previous',component:previous},
-    {path:'/pro_detail',component:pro_detail},
+    {path:'/pro_detail/:id',component:pro_detail},
     {path:'/personal/my_address',component:my_address},
     {path:'/personal/my_address/add_address',component:add_address},
     {path:'/qrdd',component:qrdd}
